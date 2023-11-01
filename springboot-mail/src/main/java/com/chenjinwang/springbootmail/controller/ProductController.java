@@ -1,5 +1,6 @@
 package com.chenjinwang.springbootmail.controller;
 
+import com.chenjinwang.springbootmail.constant.ProductCategory;
 import com.chenjinwang.springbootmail.dto.ProductRequest;
 import com.chenjinwang.springbootmail.model.Product;
 import com.chenjinwang.springbootmail.service.ProductService;
@@ -18,8 +19,11 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProduct() {
-        List<Product> productList =productService.getProducts();
+    public ResponseEntity<List<Product>> getProduct(
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search
+    ) {
+        List<Product> productList =productService.getProducts(category, search);
 
         return ResponseEntity.status(HttpStatus.OK).body(productList);
     }
