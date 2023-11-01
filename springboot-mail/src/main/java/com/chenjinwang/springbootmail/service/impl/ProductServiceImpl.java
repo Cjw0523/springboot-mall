@@ -1,7 +1,7 @@
 package com.chenjinwang.springbootmail.service.impl;
 
-import com.chenjinwang.springbootmail.constant.ProductCategory;
 import com.chenjinwang.springbootmail.dao.ProductDao;
+import com.chenjinwang.springbootmail.dto.ProductQueryParams;
 import com.chenjinwang.springbootmail.dto.ProductRequest;
 import com.chenjinwang.springbootmail.model.Product;
 import com.chenjinwang.springbootmail.service.ProductService;
@@ -17,8 +17,8 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public List<Product> getProducts(ProductCategory category, String search) {
-        return productDao.getProducts(category, search);
+    public List<Product> getProducts(ProductQueryParams productQueryParams) {
+        return productDao.getProducts(productQueryParams);
     }
 
     @Override

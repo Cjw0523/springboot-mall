@@ -1,6 +1,6 @@
 package com.chenjinwang.springbootmail.dao;
 
-import com.chenjinwang.springbootmail.constant.ProductCategory;
+import com.chenjinwang.springbootmail.dto.ProductQueryParams;
 import com.chenjinwang.springbootmail.dto.ProductRequest;
 import com.chenjinwang.springbootmail.model.Product;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductDao {
 
-    List<Product> getProducts(ProductCategory category, String search);
+    List<Product> getProducts(ProductQueryParams productQueryParams);
 
     Product getProductById(Integer productId);
 
