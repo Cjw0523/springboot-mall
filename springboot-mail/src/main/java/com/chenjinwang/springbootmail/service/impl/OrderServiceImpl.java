@@ -4,6 +4,7 @@ import com.chenjinwang.springbootmail.dao.OrderDao;
 import com.chenjinwang.springbootmail.dao.ProductDao;
 import com.chenjinwang.springbootmail.dto.BuyItem;
 import com.chenjinwang.springbootmail.dto.CreateOrderRequest;
+import com.chenjinwang.springbootmail.model.Order;
 import com.chenjinwang.springbootmail.model.OrderItem;
 import com.chenjinwang.springbootmail.model.Product;
 import com.chenjinwang.springbootmail.service.OrderService;
@@ -22,6 +23,17 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private ProductDao productDao;
+
+    @Override
+    public Order getOrderById(Integer orderId) {
+        Order order = orderDao.getOrderById(orderId);
+
+        List<OrderItem> orderItemList = orderDao.getOrderItemsByOrderId(orderId);
+
+        order.setOrderItemList(orderItemList);
+
+        return order;
+    }
 
     @Transactional
     @Override
