@@ -2,12 +2,15 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
+    <!-- 加入viewport設定以支援RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>後台管理</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             padding-top: 20px;
         }
+        /* 在小螢幕裝置上，側邊導航將變為可收起的 */
         #sidebar {
             position: fixed;
             top: 0;
@@ -16,9 +19,27 @@
             width: 200px;
             padding: 20px;
             background-color: #f8f9fa;
+            overflow-y: auto; /* 添加滾動條 */
         }
         #content {
-            margin-left: 220px;
+            padding-left: 20px; /* 確保內容與邊框有間距 */
+        }
+        /* 在較大的螢幕上添加邊距 */
+        @media (min-width: 992px) {
+            #content {
+                margin-left: 220px;
+            }
+        }
+        /* 小於992px的螢幕尺寸 */
+        @media (max-width: 991.98px) {
+            #sidebar {
+                width: 100%;
+                height: auto;
+                position: relative; /* 非固定位置 */
+            }
+            #content {
+                margin-left: 0;
+            }
         }
     </style>
 </head>
@@ -42,7 +63,7 @@
             <a class="nav-link" href="#">報表分析</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">設定</a>
+            <a class="nav-link" href="settings.html">設定</a>
         </li>
     </ul>
 </div>
