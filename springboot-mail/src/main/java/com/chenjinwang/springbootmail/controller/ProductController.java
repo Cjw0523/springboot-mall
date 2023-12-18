@@ -47,7 +47,7 @@ public class ProductController {
         productQueryParams.setOffset(offset);
 
         // 取得 product list
-        List<Product> productList =productService.getProducts(productQueryParams);
+        List<Product> productList = productService.getProducts(productQueryParams);
 
         // 取得 product 總數
         Integer total = productService.countProduct(productQueryParams);

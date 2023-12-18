@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 
-@CrossOrigin(origins = "http://localhost:63342") // 假設你的前端跑在 localhost:63342
+//@CrossOrigin(origins = "http://localhost:63342") // 假設你的前端跑在 localhost:63342
 @RestController
 public class UserController {
 
